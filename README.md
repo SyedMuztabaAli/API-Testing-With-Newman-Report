@@ -109,3 +109,97 @@ pm.environment.set("additionalneeds",additionalNeeds);
     "additionalneeds": "Pants"
 }
 ```
+
+## _**3. Create A Token For Authentication.**_
+### Request URL: https://restful-booker.herokuapp.com/auth
+### Request Method: POST
+### Pre-request Script: None
+### Request Body:
+ ```console 
+{
+	"username": "admin",
+	"password": "password123"
+}
+```
+  **Response Body:**
+ ```console 
+{
+    "token": "a0c58af39fd806e"
+}
+```
+ ## _**4. Update the Booking Details**_
+### Request URL: https://restful-booker.herokuapp.com/booking/bookingid
+### Request Method: PUT
+### Pre-request Script:
+ ## _**4. Update the Booking Details**_
+### Request URL: https://restful-booker.herokuapp.com/booking/bookingid
+### Request Method: PUT
+### Pre-request Script:
+```console 
+//FirstName update
+var updated_firstName = pm.variables.replaceIn("{{$randomFirstName}}");
+console.log(updated_firstName);
+pm.environment.set("updatedFirstName",updated_firstName)
+
+//LastName Update
+var updated_lastName = pm.variables.replaceIn("{{$randomLastName}}");
+pm.environment.set("updatedLastName",updated_lastName);
+
+//TotalPrice Update
+var updatedTotalPrice = pm.variables.replaceIn(Math.floor(Math.random() *9000))
+pm.environment.set("updatedTotalPrice",updatedTotalPrice);
+
+//DepositPaid Update
+var updated_depositPaid = pm.variables.replaceIn("{{$randomBoolean}}");
+pm.environment.set("updatedDepositPaid",updated_depositPaid);
+
+//Date Update
+const moment  = require('moment');
+const today = moment();
+var updated_checkin = today.add(2,'d').add(2,'M').format("YYYY-MM-DD")
+console.log(updated_checkin);
+pm.environment.set("updatedCheckin",updated_checkin);
+
+var updated_checkout = today.add(5,'d').format("YYYY-MM-DD")
+pm.environment.set("updatedCheckout",updated_checkout);
+
+//Additional Needs Update
+var updatedAdditionalNeeds = pm.variables.replaceIn("{{$randomProduct}}")
+pm.environment.set("updatedAdditionalneeds",updatedAdditionalNeeds);
+
+
+```
+  **Request Body:** 
+ ```console 
+{
+    "firstname": "{{updatedFirstName}}",
+    "lastname": "{{updatedLastName}}",
+    "totalprice": {{updatedTotalPrice}},
+    "depositpaid": {{updatedDepositPaid}},
+    "bookingdates":{
+        "checkin": "{{updatedCheckin}}",
+        "checkout": "{{updatedCheckout}}"
+    },
+    "additionalneeds": "{{updatedAdditionalneeds}}"
+}
+```
+  **Response Body:**
+ ```console 
+ {
+    "firstname": "Jaiden",
+    "lastname": "Tillman",
+    "totalprice": 3893,
+    "depositpaid": true,
+    "bookingdates": {
+        "checkin": "2025-02-17",
+        "checkout": "2025-02-22"
+    },
+    "additionalneeds": "Fish"
+}
+```
+
+ ## _**5. Delete Booking Record**_
+
+### Request URL: https://restful-booker.herokuapp.com/booking/bookingid
+### Request Method: DELETE
+### Response Body: None 
