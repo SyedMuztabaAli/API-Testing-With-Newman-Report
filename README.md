@@ -63,16 +63,16 @@ This project demonstrates API testing using Postman, providing a collection of t
   **Request Body:** 
  ```console 
   {
-	  "firstname" : "{{firstName}}",
-	  "lastname" : "{{lastName}}",
-	  "totalprice" : {{totalPrice}},
-	  "depositpaid" : {{depositPaid}},
-	  "bookingdates" : {
-    	  "checkin" : "{{checkin}}",
-    	  "checkout" : "{{checkout}}"
-	  },
-	  "additionalneeds" : "{{additionalNeeds}}"
-  }
+     "firstname" : "{{firstName}}",
+     "lastname" : "{{lastName}}",
+     "totalprice" : {{totalPrice}},
+     "depositpaid" : {{depositPaid}},
+     "bookingdates" : {
+         "checkin" : "{{checkin}}",
+         "checkout" : "{{checkout}}"
+     },
+     "additionalneeds" : "{{additionalneeds}}"
+ }
 ```
   **Response Body:**
  ```console 
