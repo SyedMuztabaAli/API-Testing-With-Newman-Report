@@ -76,18 +76,36 @@ pm.environment.set("additionalneeds",additionalNeeds);
 ```
   **Response Body:**
  ```console 
-  {
-      "bookingid": 4334,
-      "booking": {
-          "firstname": "Joelle",
-          "lastname": "Krajcik",
-          "totalprice": 266,
-          "depositpaid": true,
-          "bookingdates": {
-              "checkin": "2024-03-15",
-              "checkout": "2024-03-20"
-          },
-          "additionalneeds": "monitor"
-      }
-  }
+{
+    "bookingid": 2161,
+    "booking": {
+        "firstname": "Jace",
+        "lastname": "Boyer",
+        "totalprice": 4626,
+        "depositpaid": false,
+        "bookingdates": {
+            "checkin": "2025-02-16",
+            "checkout": "2025-02-19"
+        },
+        "additionalneeds": "Pants"
+    }
+}
+```
+
+ ## _**2. Get Booking Details By ID**_
+### Request URL: https://restful-booker.herokuapp.com/booking/bookingid
+### Request Method: GET
+### Response Body:
+ ```console 
+{
+    "firstname": "Jace",
+    "lastname": "Boyer",
+    "totalprice": 4626,
+    "depositpaid": false,
+    "bookingdates": {
+        "checkin": "2025-02-16",
+        "checkout": "2025-02-19"
+    },
+    "additionalneeds": "Pants"
+}
 ```
